@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <div class="Input">
+        <h3><b>Get Random number by your own input!</b></h3>
+        <div>
+            
+            <label for="max">Maximum Value:</label>
+            <input type="number" id="max" placeholder="Max value"><br><br>
+            <label for="min">Minimum Value:</label>
+            <input type="number" id="min" placeholder="Min value"><br><br>
+        </div>
+        <button onclick="start()">Random Number</button>
+        <p id="ran"></p>
+    </div>
+</body>
+<script>
+    function start() {
+        
+        var max = parseInt(document.getElementById('max').value);
+        var min = parseInt(document.getElementById('min').value);
+
+        if (isNaN(max) || isNaN(min)) {
+            document.getElementById('ran').innerHTML = "Any num is not entered!!!";
+            return;
+        }
+
+        if (min > max) {
+            document.getElementById('ran').innerHTML = "Minimum value cannot be greater than maximum value.";
+            return;
+        }
+
+        var num = Math.floor(Math.random() * (max - min + 1)) + min;
+        document.getElementById('ran').innerHTML = "Your desired Random Number is: " + num;
+    }
+</script>
+</html>
